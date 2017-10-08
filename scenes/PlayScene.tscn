@@ -1,0 +1,280 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://script/PlayRoot.gd" type="Script" id=1]
+[ext_resource path="res://script/HexDummy.gd" type="Script" id=2]
+[ext_resource path="res://images/tileset2.png" type="Texture" id=3]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 47.6652, 2.46293, 92.8344, 29.3494, 91.759, 81.3298, 47.6652, 106.782, 3.57142, 80.9714, 4.28839, 28.6324 )
+
+[node name="PlayRoot" type="Control"]
+
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 288.0
+margin/top = 512.0
+margin/right = 288.0
+margin/bottom = 512.0
+script/script = ExtResource( 1 )
+
+[node name="GridOrigin" type="Position2D" parent="."]
+
+transform/pos = Vector2( 0, 310 )
+
+[node name="HexTile" type="Area2D" parent="GridOrigin"]
+
+transform/pos = Vector2( -44, 82 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GridOrigin/HexTile"]
+
+build_mode = 0
+polygon = Vector2Array( 47.6652, 2.46293, 92.8344, 29.3494, 91.759, 81.3298, 47.6652, 106.782, 3.57142, 80.9714, 4.28839, 28.6324 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="tile" type="Sprite" parent="GridOrigin/HexTile"]
+
+visibility/visible = false
+transform/pos = Vector2( 48, 55 )
+texture = ExtResource( 3 )
+vframes = 6
+hframes = 4
+
+[node name="HexTile5" type="Area2D" parent="GridOrigin"]
+
+transform/pos = Vector2( 526, 82 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GridOrigin/HexTile5"]
+
+build_mode = 0
+polygon = Vector2Array( 47.6652, 2.46293, 92.8344, 29.3494, 91.759, 81.3298, 47.6652, 106.782, 3.57142, 80.9714, 4.28839, 28.6324 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="tile" type="Sprite" parent="GridOrigin/HexTile5"]
+
+visibility/visible = false
+transform/pos = Vector2( 48, 55 )
+texture = ExtResource( 3 )
+vframes = 6
+hframes = 4
+
+[node name="HexTile1" type="Area2D" parent="GridOrigin"]
+
+transform/pos = Vector2( -45, 246 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GridOrigin/HexTile1"]
+
+build_mode = 0
+polygon = Vector2Array( 47.6652, 2.46293, 92.8344, 29.3494, 91.759, 81.3298, 47.6652, 106.782, 3.57142, 80.9714, 4.28839, 28.6324 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="tile" type="Sprite" parent="GridOrigin/HexTile1"]
+
+visibility/visible = false
+transform/pos = Vector2( 48, 55 )
+texture = ExtResource( 3 )
+vframes = 6
+hframes = 4
+
+[node name="HexTile3" type="Area2D" parent="GridOrigin"]
+
+transform/pos = Vector2( 527, 246 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GridOrigin/HexTile3"]
+
+build_mode = 0
+polygon = Vector2Array( 47.6652, 2.46293, 92.8344, 29.3494, 91.759, 81.3298, 47.6652, 106.782, 3.57142, 80.9714, 4.28839, 28.6324 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="tile" type="Sprite" parent="GridOrigin/HexTile3"]
+
+visibility/visible = false
+transform/pos = Vector2( 48, 55 )
+texture = ExtResource( 3 )
+vframes = 6
+hframes = 4
+
+[node name="HexTile2" type="Area2D" parent="GridOrigin"]
+
+transform/pos = Vector2( -45, 410 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GridOrigin/HexTile2"]
+
+build_mode = 0
+polygon = Vector2Array( 47.6652, 2.46293, 92.8344, 29.3494, 91.759, 81.3298, 47.6652, 106.782, 3.57142, 80.9714, 4.28839, 28.6324 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="tile" type="Sprite" parent="GridOrigin/HexTile2"]
+
+visibility/visible = false
+transform/pos = Vector2( 48, 55 )
+texture = ExtResource( 3 )
+vframes = 6
+hframes = 4
+
+[node name="HexTile4" type="Area2D" parent="GridOrigin"]
+
+transform/pos = Vector2( 527, 410 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GridOrigin/HexTile4"]
+
+build_mode = 0
+polygon = Vector2Array( 47.6652, 2.46293, 92.8344, 29.3494, 91.759, 81.3298, 47.6652, 106.782, 3.57142, 80.9714, 4.28839, 28.6324 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="tile" type="Sprite" parent="GridOrigin/HexTile4"]
+
+visibility/visible = false
+transform/pos = Vector2( 48, 55 )
+texture = ExtResource( 3 )
+vframes = 6
+hframes = 4
+
+[node name="Top" type="ColorFrame" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 269.0
+margin/right = 576.0
+margin/bottom = 310.0
+color = Color( 0.828125, 0, 1, 0 )
+
+[node name="Left" type="ColorFrame" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -41.0
+margin/top = 269.0
+margin/right = 0.0
+margin/bottom = 954.0
+color = Color( 0.828125, 0, 1, 0 )
+
+[node name="Right" type="ColorFrame" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 576.0
+margin/top = 269.0
+margin/right = 619.0
+margin/bottom = 954.0
+color = Color( 0.828125, 0, 1, 0 )
+
+[node name="Bottom" type="ColorFrame" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 913.0
+margin/right = 576.0
+margin/bottom = 954.0
+color = Color( 0.828125, 0, 1, 0 )
+
+[connection signal="input_event" from="GridOrigin/HexTile" to="GridOrigin/HexTile" method="_on_input_event"]
+
+[connection signal="released" from="GridOrigin/HexTile" to="." method="_on_area_exit"]
+
+[connection signal="input_event" from="GridOrigin/HexTile5" to="GridOrigin/HexTile5" method="_on_input_event"]
+
+[connection signal="released" from="GridOrigin/HexTile5" to="." method="_on_area_exit"]
+
+[connection signal="input_event" from="GridOrigin/HexTile1" to="GridOrigin/HexTile1" method="_on_input_event"]
+
+[connection signal="released" from="GridOrigin/HexTile1" to="." method="_on_area_exit"]
+
+[connection signal="input_event" from="GridOrigin/HexTile3" to="GridOrigin/HexTile3" method="_on_input_event"]
+
+[connection signal="released" from="GridOrigin/HexTile3" to="." method="_on_area_exit"]
+
+[connection signal="input_event" from="GridOrigin/HexTile2" to="GridOrigin/HexTile2" method="_on_input_event"]
+
+[connection signal="released" from="GridOrigin/HexTile2" to="." method="_on_area_exit"]
+
+[connection signal="input_event" from="GridOrigin/HexTile4" to="GridOrigin/HexTile4" method="_on_input_event"]
+
+[connection signal="released" from="GridOrigin/HexTile4" to="." method="_on_area_exit"]
+
+[connection signal="mouse_enter" from="Top" to="." method="_on_area_exit"]
+
+[connection signal="mouse_enter" from="Left" to="." method="_on_area_exit"]
+
+[connection signal="mouse_enter" from="Right" to="." method="_on_area_exit"]
+
+[connection signal="mouse_enter" from="Bottom" to="." method="_on_area_exit"]
+
+

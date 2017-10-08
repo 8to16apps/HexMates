@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://script/HexTile.gd" type="Script" id=1]
+[ext_resource path="res://images/tileset2.png" type="Texture" id=2]
+[ext_resource path="res://images/particle.png" type="Texture" id=3]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 47.6652, 2.46293, 92.8344, 29.3494, 91.759, 81.3298, 47.6652, 106.782, 3.57142, 80.9714, 4.28839, 28.6324 )
+
+[sub_resource type="ColorRamp" id=2]
+
+offsets = FloatArray( 0, 0.596838, 1 )
+colors = ColorArray( 0.0546875, 1, 0, 1, 0.96875, 1, 0, 1, 0.894531, 0.771468, 0.209656, 0.153176 )
+
+[node name="HexTile" type="Area2D"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+build_mode = 0
+polygon = Vector2Array( 47.6652, 2.46293, 92.8344, 29.3494, 91.759, 81.3298, 47.6652, 106.782, 3.57142, 80.9714, 4.28839, 28.6324 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="tile" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 55 )
+texture = ExtResource( 2 )
+vframes = 6
+hframes = 4
+
+[node name="marker" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 55 )
+texture = ExtResource( 2 )
+vframes = 6
+hframes = 4
+frame = 23
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 4.0
+one_shot = false
+autostart = false
+
+[node name="Particles2D" type="Particles2D" parent="."]
+
+transform/pos = Vector2( 47, 53 )
+z/z = 100
+z/relative = false
+config/amount = 16
+config/lifetime = 0.7
+config/preprocess = 0.7
+config/emit_timeout = 0.7
+config/emitting = false
+config/process_mode = 1
+config/explosiveness = 0.01
+config/texture = ExtResource( 3 )
+params/direction = 0.0
+params/spread = 180.0
+params/linear_velocity = 92.0
+params/spin_velocity = 2.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 0.5
+params/hue_variation = 0.0
+params/anim_speed_scale = 0.0
+params/anim_initial_pos = 0.0
+randomness/linear_velocity = 0.1
+randomness/initial_size = 0.2
+randomness/final_size = 0.5
+color/color_ramp = SubResource( 2 )
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+
+[connection signal="mouse_enter" from="." to="." method="_on_mouse_enter"]
+
+[connection signal="mouse_exit" from="." to="." method="_on_HexTile_mouse_exit"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+

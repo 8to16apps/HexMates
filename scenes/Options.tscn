@@ -1,0 +1,203 @@
+[gd_scene load_steps=12 format=1]
+
+[ext_resource path="res://script/Options.gd" type="Script" id=1]
+[ext_resource path="res://images/ui/close_normal.png" type="Texture" id=2]
+[ext_resource path="res://images/ui/close_press.png" type="Texture" id=3]
+[ext_resource path="res://images/ui/tgl_fx_off.png" type="Texture" id=4]
+[ext_resource path="res://images/ui/tgl_fx_on.png" type="Texture" id=5]
+[ext_resource path="res://images/ui/tgl_music_off.png" type="Texture" id=6]
+[ext_resource path="res://images/ui/tgl_music_on.png" type="Texture" id=7]
+[ext_resource path="res://scenes/btn_normal_style.tres" type="StyleBox" id=8]
+[ext_resource path="res://scenes/btn_press_style.tres" type="StyleBox" id=9]
+[ext_resource path="res://fnt/font32ptn.tres" type="DynamicFont" id=10]
+[ext_resource path="res://audio/SampleList.tres" type="SampleLibrary" id=11]
+
+[node name="Options" type="ColorFrame"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -96.0
+margin/top = 0.0
+margin/right = 672.0
+margin/bottom = 1024.0
+color = Color( 0.313726, 0.34902, 0.482353, 0.240431 )
+script/script = ExtResource( 1 )
+show_exit_button = false
+
+[node name="Background" type="ColorFrame" parent="."]
+
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 223.5
+margin/top = 204.0
+margin/right = -229.5
+margin/bottom = -188.0
+color = Color( 0.223529, 0.258824, 0.392157, 1 )
+
+[node name="Title" type="ColorFrame" parent="Background"]
+
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 1.0
+margin/right = 0.0
+margin/bottom = 3.0
+color = Color( 0.901961, 0.298039, 0.396078, 1 )
+
+[node name="btn_close" type="TextureButton" parent="Background"]
+
+anchor/left = 1
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 60.0
+margin/top = 3.0
+margin/right = 0.0
+margin/bottom = 63.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 2 )
+textures/pressed = ExtResource( 3 )
+params/resize_mode = 1
+params/stretch_mode = 0
+
+[node name="hb_audio" type="HBoxContainer" parent="Background"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 67.0
+margin/right = 453.0
+margin/bottom = 161.0
+custom_constants/separation = 98
+alignment = 1
+
+[node name="tgl_audio" type="TextureButton" parent="Background/hb_audio"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 102.0
+margin/top = 0.0
+margin/right = 177.0
+margin/bottom = 94.0
+toggle_mode = true
+is_pressed = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 4 )
+textures/pressed = ExtResource( 5 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="tgl_music" type="TextureButton" parent="Background/hb_audio"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 275.0
+margin/top = 0.0
+margin/right = 350.0
+margin/bottom = 94.0
+toggle_mode = true
+is_pressed = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 6 )
+textures/pressed = ExtResource( 7 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="btn_more" type="Button" parent="Background"]
+
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 13.0
+margin/top = 173.0
+margin/right = 13.0
+margin/bottom = 271.0
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 9 )
+custom_styles/normal = ExtResource( 8 )
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "OPTMORE"
+flat = false
+
+[node name="btn_exit" type="Button" parent="Background"]
+
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 13.0
+margin/top = 284.0
+margin/right = 13.0
+margin/bottom = 382.0
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 9 )
+custom_styles/normal = ExtResource( 8 )
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "OPTEXIT"
+flat = false
+
+[node name="SamplePlayer" type="SamplePlayer" parent="."]
+
+config/polyphony = 1
+config/samples = ExtResource( 11 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+
+[connection signal="pressed" from="Background/btn_close" to="." method="_on_btn_close_pressed"]
+
+[connection signal="pressed" from="Background/hb_audio/tgl_audio" to="." method="_on_tgl_audio_pressed"]
+
+[connection signal="pressed" from="Background/hb_audio/tgl_music" to="." method="_on_tgl_music_pressed"]
+
+[connection signal="pressed" from="Background/btn_more" to="." method="_on_btn_more_pressed"]
+
+[connection signal="pressed" from="Background/btn_exit" to="." method="_on_btn_exit_pressed"]
+
+

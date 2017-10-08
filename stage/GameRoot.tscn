@@ -1,0 +1,741 @@
+[gd_scene load_steps=32 format=1]
+
+[ext_resource path="res://script/GameRoot.gd" type="Script" id=1]
+[ext_resource path="res://scenes/PlayScene.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fnt/font24ptn.tres" type="DynamicFont" id=3]
+[ext_resource path="res://script/UIUpdate.gd" type="Script" id=4]
+[ext_resource path="res://fnt/font32ptn.tres" type="DynamicFont" id=5]
+[ext_resource path="res://images/ui/btn_config_normal.png" type="Texture" id=6]
+[ext_resource path="res://images/ui/btn_config_press.png" type="Texture" id=7]
+[ext_resource path="res://images/particle2.png" type="Texture" id=8]
+[ext_resource path="res://images/ui/btn_add_normal.png" type="Texture" id=9]
+[ext_resource path="res://images/ui/btn_add_press.png" type="Texture" id=10]
+[ext_resource path="res://images/ui/btn_add_dis.png" type="Texture" id=11]
+[ext_resource path="res://images/quest_tiles.png" type="Texture" id=12]
+[ext_resource path="res://script/UIUpdate_bottom.gd" type="Script" id=13]
+[ext_resource path="res://images/ui/btn_market_normal.png" type="Texture" id=14]
+[ext_resource path="res://images/ui/btn_market_press.png" type="Texture" id=15]
+[ext_resource path="res://images/ui/btn_rndcolor_normal.png" type="Texture" id=16]
+[ext_resource path="res://images/ui/btn_rndcolor_press.png" type="Texture" id=17]
+[ext_resource path="res://images/ui/btn_rndshape_normal.png" type="Texture" id=18]
+[ext_resource path="res://images/ui/btn_rndshape_press.png" type="Texture" id=19]
+[ext_resource path="res://images/ui/btn_explode_normal.png" type="Texture" id=20]
+[ext_resource path="res://images/ui/btn_explode_press.png" type="Texture" id=21]
+[ext_resource path="res://images/ui/btn_grow_normal.png" type="Texture" id=22]
+[ext_resource path="res://images/ui/btn_grow_press.png" type="Texture" id=23]
+[ext_resource path="res://scenes/Options.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scenes/AskPopup.tscn" type="PackedScene" id=25]
+[ext_resource path="res://audio/SampleList.tres" type="SampleLibrary" id=26]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.6, 0.6, 0.6, 1 )
+light_color = Color( 0.8, 0.8, 0.8, 1 )
+dark_color = Color( 0.8, 0.8, 0.8, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[sub_resource type="StyleBoxFlat" id=2]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.901961, 0.298039, 0.396078, 1 )
+light_color = Color( 0.0117647, 0.0117647, 0.00392157, 1 )
+dark_color = Color( 0.0117647, 0.0117647, 0.00392157, 1 )
+border_size = 1
+border_blend = true
+draw_bg = true
+
+[sub_resource type="StyleBoxFlat" id=3]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.313726, 0.34902, 0.482353, 1 )
+light_color = Color( 0.0117647, 0.0117647, 0.00392157, 1 )
+dark_color = Color( 0.0117647, 0.0117647, 0.00392157, 1 )
+border_size = 1
+border_blend = false
+draw_bg = true
+
+[sub_resource type="ColorRamp" id=4]
+
+offsets = FloatArray( 0, 0.153203, 0.56546, 1 )
+colors = ColorArray( 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0 )
+
+[sub_resource type="ColorRamp" id=5]
+
+offsets = FloatArray( 0, 1 )
+colors = ColorArray( 1, 0.984375, 0, 1, 1, 0.990967, 0.421875, 1 )
+
+[node name="GameRoot" type="Control"]
+
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 288.0
+margin/top = 512.0
+margin/right = 288.0
+margin/bottom = 512.0
+script/script = ExtResource( 1 )
+
+[node name="BannerRef" type="ReferenceFrame" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 576.0
+margin/bottom = 90.0
+custom_styles/border = SubResource( 1 )
+
+[node name="PlayRoot" parent="." instance=ExtResource( 2 )]
+
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+
+[node name="lbl_title" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 91.0
+margin/right = 576.0
+margin/bottom = 166.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "TUTO3"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="top_controls" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 163.0
+margin/right = 576.0
+margin/bottom = 306.0
+script/script = ExtResource( 4 )
+points = NodePath("lbl_points")
+level = NodePath("lbl_level")
+level_points = NodePath("lbl_level/pgb_upgrade")
+quest0_image = NodePath("column_quest/row_0/image")
+quest0_remain = NodePath("column_quest/row_0/Label")
+quest1_image = NodePath("column_quest/row_1/image")
+quest1_remain = NodePath("column_quest/row_1/Label")
+quest2_image = NodePath("column_quest/row_2/image")
+quest2_remain = NodePath("column_quest/row_2/Label")
+sample_player = NodePath("../SamplePlayer")
+
+[node name="lbl_level" type="Label" parent="top_controls"]
+
+anchor/left = 3
+anchor/right = 3
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 50.0
+margin/top = 0.0
+margin/right = -50.0
+margin/bottom = 40.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "100"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="btn_pause" type="TextureButton" parent="top_controls/lbl_level"]
+
+anchor/left = 3
+anchor/top = 1
+anchor/right = 3
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 35.0
+margin/top = -25.0
+margin/right = -45.0
+margin/bottom = -105.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 6 )
+textures/pressed = ExtResource( 7 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="pgb_upgrade" type="ProgressBar" parent="top_controls/lbl_level"]
+
+anchor/left = 3
+anchor/top = 1
+anchor/right = 3
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 75.0
+margin/top = 0.0
+margin/right = -75.0
+margin/bottom = -20.0
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 50.0
+range/exp_edit = false
+range/rounded = false
+percent/visible = false
+
+[node name="quest_particle" type="Particles2D" parent="top_controls/lbl_level/pgb_upgrade"]
+
+transform/pos = Vector2( 75, 10 )
+config/amount = 64
+config/lifetime = 5.0
+config/time_scale = 2.0
+config/preprocess = 3600.0
+config/emit_timeout = 1.0
+config/emitting = false
+config/process_mode = 1
+config/half_extents = Vector2( 75, 10 )
+config/explosiveness = 0.01
+config/texture = ExtResource( 8 )
+params/direction = 180.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 5.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.5
+params/final_size = 0.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+color/color = Color( 0.901961, 0.298039, 0.396078, 1 )
+color/color_ramp = SubResource( 4 )
+
+[node name="level_up" type="Particles2D" parent="top_controls/lbl_level"]
+
+transform/pos = Vector2( 50, 20 )
+config/amount = 64
+config/lifetime = 2.0
+config/emit_timeout = 2.0
+config/emitting = false
+config/process_mode = 1
+config/explosiveness = 0.01
+config/texture = ExtResource( 8 )
+params/direction = 0.0
+params/spread = 180.0
+params/linear_velocity = 80.0
+params/spin_velocity = 2.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 20.0
+params/damping = 40.0
+params/initial_angle = 0.0
+params/initial_size = 0.0
+params/final_size = 0.5
+params/hue_variation = 0.0
+params/anim_speed_scale = 0.0
+params/anim_initial_pos = 0.0
+randomness/linear_velocity = 0.1
+randomness/spin_velocity = 1.0
+randomness/final_size = 0.2
+color/color_ramp = SubResource( 5 )
+
+[node name="lbl_points" type="Label" parent="top_controls"]
+
+editor/display_folded = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 20.0
+margin/top = 0.0
+margin/right = 180.0
+margin/bottom = 50.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "100000"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Add" type="TextureButton" parent="top_controls/lbl_points"]
+
+anchor/left = 3
+anchor/top = 1
+anchor/right = 3
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 0.0
+margin/right = -20.0
+margin/bottom = -40.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 9 )
+textures/pressed = ExtResource( 10 )
+textures/disabled = ExtResource( 11 )
+params/resize_mode = 1
+params/scale = Vector2( 0.5, 0.5 )
+params/stretch_mode = 1
+
+[node name="column_quest" type="VBoxContainer" parent="top_controls"]
+
+editor/display_folded = true
+anchor/left = 1
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 185.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+alignment = 1
+
+[node name="row_0" type="HBoxContainer" parent="top_controls/column_quest"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 7.0
+margin/right = 185.0
+margin/bottom = 47.0
+custom_constants/separation = 40
+alignment = 1
+
+[node name="image" type="Sprite" parent="top_controls/column_quest/row_0"]
+
+transform/pos = Vector2( 15, 0 )
+texture = ExtResource( 12 )
+offset = Vector2( 20, 20 )
+vframes = 6
+hframes = 4
+
+[node name="Label" type="Label" parent="top_controls/column_quest/row_0"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 70.0
+margin/top = 0.0
+margin/right = 115.0
+margin/bottom = 40.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "100"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="row_1" type="HBoxContainer" parent="top_controls/column_quest"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 51.0
+margin/right = 185.0
+margin/bottom = 91.0
+custom_constants/separation = 40
+alignment = 1
+
+[node name="image" type="Sprite" parent="top_controls/column_quest/row_1"]
+
+transform/pos = Vector2( 15, 0 )
+texture = ExtResource( 12 )
+offset = Vector2( 20, 20 )
+vframes = 6
+hframes = 4
+
+[node name="Label" type="Label" parent="top_controls/column_quest/row_1"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 70.0
+margin/top = 0.0
+margin/right = 115.0
+margin/bottom = 40.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "100"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="row_2" type="HBoxContainer" parent="top_controls/column_quest"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 95.0
+margin/right = 185.0
+margin/bottom = 135.0
+custom_constants/separation = 40
+alignment = 1
+
+[node name="image" type="Sprite" parent="top_controls/column_quest/row_2"]
+
+transform/pos = Vector2( 15, 0 )
+texture = ExtResource( 12 )
+offset = Vector2( 20, 20 )
+vframes = 6
+hframes = 4
+
+[node name="Label" type="Label" parent="top_controls/column_quest/row_2"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 70.0
+margin/top = 0.0
+margin/right = 115.0
+margin/bottom = 40.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "100"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="btn_controls" type="HBoxContainer" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 932.0
+margin/right = 576.0
+margin/bottom = 1012.0
+custom_constants/separation = 30
+alignment = 1
+script/script = ExtResource( 13 )
+power_up_0_counter = NodePath("power_up_0/Label")
+power_up_1_counter = NodePath("power_up_1/Label")
+power_up_2_counter = NodePath("power_up_2/Label")
+power_up_3_counter = NodePath("power_up_3/Label")
+sample_player = NodePath("../SamplePlayer")
+
+[node name="Market" type="TextureButton" parent="btn_controls"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 28.0
+margin/top = 0.0
+margin/right = 108.0
+margin/bottom = 80.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 14 )
+textures/pressed = ExtResource( 15 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="power_up_0" type="TextureButton" parent="btn_controls"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 138.0
+margin/top = 0.0
+margin/right = 218.0
+margin/bottom = 80.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 16 )
+textures/pressed = ExtResource( 17 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Label" type="Label" parent="btn_controls/power_up_0"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 38.0
+margin/top = 39.0
+margin/right = 78.0
+margin/bottom = 83.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 0.952941, 1 )
+custom_colors/font_color_shadow = Color( 0.796875, 0.192993, 0.348681, 1 )
+custom_constants/shadow_offset_x = -3
+custom_constants/shadow_offset_y = -1
+text = "9"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="power_up_1" type="TextureButton" parent="btn_controls"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 248.0
+margin/top = 0.0
+margin/right = 328.0
+margin/bottom = 80.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 18 )
+textures/pressed = ExtResource( 19 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Label" type="Label" parent="btn_controls/power_up_1"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 38.0
+margin/top = 39.0
+margin/right = 78.0
+margin/bottom = 83.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 0.952941, 1 )
+custom_colors/font_color_shadow = Color( 0.796875, 0.192993, 0.348681, 1 )
+custom_constants/shadow_offset_x = -3
+custom_constants/shadow_offset_y = -1
+text = "9"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="power_up_2" type="TextureButton" parent="btn_controls"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 358.0
+margin/top = 0.0
+margin/right = 438.0
+margin/bottom = 80.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 20 )
+textures/pressed = ExtResource( 21 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Label" type="Label" parent="btn_controls/power_up_2"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 38.0
+margin/top = 39.0
+margin/right = 78.0
+margin/bottom = 83.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 0.952941, 1 )
+custom_colors/font_color_shadow = Color( 0.796875, 0.192993, 0.348681, 1 )
+custom_constants/shadow_offset_x = -3
+custom_constants/shadow_offset_y = -1
+text = "9"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="power_up_3" type="TextureButton" parent="btn_controls"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 468.0
+margin/top = 0.0
+margin/right = 548.0
+margin/bottom = 80.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 22 )
+textures/pressed = ExtResource( 23 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Label" type="Label" parent="btn_controls/power_up_3"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 38.0
+margin/top = 39.0
+margin/right = 78.0
+margin/bottom = 83.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 0.952941, 1 )
+custom_colors/font_color_shadow = Color( 0.796875, 0.192993, 0.348681, 1 )
+custom_constants/shadow_offset_x = -3
+custom_constants/shadow_offset_y = -1
+text = "9"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Options" parent="." instance=ExtResource( 24 )]
+
+visibility/visible = false
+show_exit_button = true
+
+[node name="AskPopup" parent="." instance=ExtResource( 25 )]
+
+visibility/visible = false
+Message = "ASKMSG1"
+
+[node name="PowerPopup" parent="." instance=ExtResource( 25 )]
+
+visibility/visible = false
+Message = "ASKMSG2"
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 15.0
+one_shot = false
+autostart = true
+
+[node name="SamplePlayer" type="SamplePlayer" parent="."]
+
+config/polyphony = 1
+config/samples = ExtResource( 26 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+
+[connection signal="pressed" from="top_controls/lbl_level/btn_pause" to="." method="_on_btn_pause_pressed"]
+
+[connection signal="pressed" from="top_controls/lbl_points/Add" to="." method="_on_Add_pressed"]
+
+[connection signal="pressed" from="btn_controls/Market" to="." method="_on_Market_pressed"]
+
+[connection signal="toggled" from="btn_controls/power_up_0" to="PlayRoot" method="_on_power_up_0_toggled"]
+
+[connection signal="toggled" from="btn_controls/power_up_0" to="btn_controls" method="_on_toggled_0"]
+
+[connection signal="toggled" from="btn_controls/power_up_1" to="PlayRoot" method="_on_power_up_1_toggled"]
+
+[connection signal="toggled" from="btn_controls/power_up_1" to="btn_controls" method="_on_toggled_1"]
+
+[connection signal="toggled" from="btn_controls/power_up_2" to="PlayRoot" method="_on_power_up_2_toggled"]
+
+[connection signal="toggled" from="btn_controls/power_up_2" to="btn_controls" method="_on_toggled_2"]
+
+[connection signal="toggled" from="btn_controls/power_up_3" to="PlayRoot" method="_on_power_up_3_toggled"]
+
+[connection signal="toggled" from="btn_controls/power_up_3" to="btn_controls" method="_on_toggled_3"]
+
+[connection signal="toggle_music" from="Options" to="." method="_on_Options_toggle_music"]
+
+[connection signal="toggle_sfx" from="Options" to="." method="_on_Options_toggle_sfx"]
+
+[connection signal="accept" from="AskPopup" to="." method="_on_AskPopup_accept"]
+
+[connection signal="accept" from="PowerPopup" to="." method="_on_PowerPopup_accept"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+

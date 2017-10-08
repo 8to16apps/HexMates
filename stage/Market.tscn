@@ -1,0 +1,476 @@
+[gd_scene load_steps=17 format=1]
+
+[ext_resource path="res://script/Market.gd" type="Script" id=1]
+[ext_resource path="res://images/ui/btn_back_normal.png" type="Texture" id=2]
+[ext_resource path="res://images/ui/btn_back_press.png" type="Texture" id=3]
+[ext_resource path="res://fnt/font32ptn.tres" type="DynamicFont" id=4]
+[ext_resource path="res://images/ui/btn_add_normal.png" type="Texture" id=5]
+[ext_resource path="res://images/ui/btn_add_press.png" type="Texture" id=6]
+[ext_resource path="res://images/ui/btn_add_dis.png" type="Texture" id=7]
+[ext_resource path="res://images/ui/btn_rndcolor_normal.png" type="Texture" id=8]
+[ext_resource path="res://fnt/font24ptn.tres" type="DynamicFont" id=9]
+[ext_resource path="res://scenes/btn_normal_style.tres" type="StyleBox" id=10]
+[ext_resource path="res://scenes/btn_press_style.tres" type="StyleBox" id=11]
+[ext_resource path="res://images/ui/btn_rndshape_normal.png" type="Texture" id=12]
+[ext_resource path="res://images/ui/btn_explode_normal.png" type="Texture" id=13]
+[ext_resource path="res://images/ui/btn_grow_normal.png" type="Texture" id=14]
+[ext_resource path="res://scenes/AskPopup.tscn" type="PackedScene" id=15]
+[ext_resource path="res://audio/SampleList.tres" type="SampleLibrary" id=16]
+
+[node name="Market" type="Control"]
+
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 288.0
+margin/top = 512.0
+margin/right = 288.0
+margin/bottom = 512.0
+script/script = ExtResource( 1 )
+points = NodePath("Label")
+power_up_0_counter = NodePath("GridContainer/amount_0")
+power_up_1_counter = NodePath("GridContainer/amount_1")
+power_up_2_counter = NodePath("GridContainer/amount_2")
+power_up_3_counter = NodePath("GridContainer/amount_3")
+power_up_0_price = 50
+power_up_1_price = 50
+power_up_2_price = 100
+power_up_3_price = 200
+buy_power_up_0 = NodePath("GridContainer/buy_0")
+buy_power_up_1 = NodePath("GridContainer/buy_1")
+buy_power_up_2 = NodePath("GridContainer/buy_2")
+buy_power_up_3 = NodePath("GridContainer/buy_3")
+buy_power_up_label_0 = NodePath("GridContainer/buy_0")
+buy_power_up_label_1 = NodePath("GridContainer/buy_1")
+buy_power_up_label_2 = NodePath("GridContainer/buy_2")
+buy_power_up_label_3 = NodePath("GridContainer/buy_3")
+
+[node name="BannerRef" type="ColorFrame" parent="."]
+
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -433.0
+margin/top = -615.0
+margin/right = -1016.0
+margin/bottom = 1719.0
+color = Color( 0.121569, 0.145098, 0.239216, 1 )
+
+[node name="back" type="TextureButton" parent="."]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 45.0
+margin/top = 188.0
+margin/right = 125.0
+margin/bottom = 268.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 2 )
+textures/pressed = ExtResource( 3 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 141.0
+margin/top = 123.0
+margin/right = 426.0
+margin/bottom = 220.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "100000"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="video" type="TextureButton" parent="."]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 447.0
+margin/top = 188.0
+margin/right = 527.0
+margin/bottom = 268.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+textures/disabled = ExtResource( 7 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 27.0
+margin/top = 283.0
+margin/right = 559.0
+margin/bottom = 1003.0
+custom_constants/vseparation = 80
+columns = 4
+
+[node name="icon_0" type="TextureFrame" parent="GridContainer"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 80.0
+margin/bottom = 120.0
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="description_0" type="Label" parent="GridContainer"]
+
+rect/min_size = Vector2( 200, 120 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 84.0
+margin/top = 0.0
+margin/right = 284.0
+margin/bottom = 120.0
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "MARKET1"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="amount_0" type="Label" parent="GridContainer"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 288.0
+margin/top = 20.0
+margin/right = 368.0
+margin/bottom = 100.0
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "9"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="buy_0" type="Button" parent="GridContainer"]
+
+rect/min_size = Vector2( 160, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 372.0
+margin/top = 20.0
+margin/right = 532.0
+margin/bottom = 100.0
+custom_styles/hover = ExtResource( 10 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 10 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "1000"
+flat = false
+
+[node name="icon_1" type="TextureFrame" parent="GridContainer"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 200.0
+margin/right = 80.0
+margin/bottom = 320.0
+texture = ExtResource( 12 )
+stretch_mode = 4
+
+[node name="description_1" type="Label" parent="GridContainer"]
+
+rect/min_size = Vector2( 200, 120 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 84.0
+margin/top = 200.0
+margin/right = 284.0
+margin/bottom = 320.0
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "MARKET2"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="amount_1" type="Label" parent="GridContainer"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 288.0
+margin/top = 220.0
+margin/right = 368.0
+margin/bottom = 300.0
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "9"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="buy_1" type="Button" parent="GridContainer"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 372.0
+margin/top = 220.0
+margin/right = 532.0
+margin/bottom = 300.0
+custom_styles/hover = ExtResource( 10 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 10 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "1000"
+flat = false
+
+[node name="icon_2" type="TextureFrame" parent="GridContainer"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 400.0
+margin/right = 80.0
+margin/bottom = 520.0
+texture = ExtResource( 13 )
+stretch_mode = 4
+
+[node name="description_2" type="Label" parent="GridContainer"]
+
+rect/min_size = Vector2( 200, 120 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 84.0
+margin/top = 400.0
+margin/right = 284.0
+margin/bottom = 520.0
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "MARKET3"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="amount_2" type="Label" parent="GridContainer"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 288.0
+margin/top = 420.0
+margin/right = 368.0
+margin/bottom = 500.0
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "9"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="buy_2" type="Button" parent="GridContainer"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 372.0
+margin/top = 420.0
+margin/right = 532.0
+margin/bottom = 500.0
+custom_styles/hover = ExtResource( 10 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 10 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "1000"
+flat = false
+
+[node name="icon_3" type="TextureFrame" parent="GridContainer"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 600.0
+margin/right = 80.0
+margin/bottom = 720.0
+texture = ExtResource( 14 )
+stretch_mode = 4
+
+[node name="description_3" type="Label" parent="GridContainer"]
+
+rect/min_size = Vector2( 200, 120 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 84.0
+margin/top = 600.0
+margin/right = 284.0
+margin/bottom = 720.0
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "MARKET4"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="amount_3" type="Label" parent="GridContainer"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 288.0
+margin/top = 620.0
+margin/right = 368.0
+margin/bottom = 700.0
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "9"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="buy_3" type="Button" parent="GridContainer"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 372.0
+margin/top = 620.0
+margin/right = 532.0
+margin/bottom = 700.0
+custom_styles/hover = ExtResource( 10 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 10 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "1000"
+flat = false
+
+[node name="AskPopup" parent="." instance=ExtResource( 15 )]
+
+Message = "ASKMSG1"
+
+[node name="SamplePlayer" type="SamplePlayer" parent="."]
+
+config/polyphony = 1
+config/samples = ExtResource( 16 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+
+[connection signal="pressed" from="video" to="." method="_on_video_reward"]
+
+[connection signal="accept" from="AskPopup" to="." method="_on_AskPopup_accept"]
+
+
